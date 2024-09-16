@@ -15,6 +15,11 @@ on_ms = 500
 
 firebase_url = "https://ec463-mini-c0f7c-default-rtdb.firebaseio.com/scores.json"
 
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect('BU Guest (unencrypted)')
+
+
 # Send data to Firebase Realtime Database.
 def data_to_firebase(data: dict) -> None:
     try:
