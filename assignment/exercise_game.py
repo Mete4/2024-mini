@@ -6,7 +6,7 @@ from machine import Pin
 import time
 import random
 import json
-
+import network
 import urequests as requests
 
 N: int = 10
