@@ -26,14 +26,19 @@ def quiet():
 
 
 freq: float = 30
-duration: float = 0.1  # seconds
-
+duration: float = 0.2  # seconds
+#notes for through the fire and the flames intro -dragonforce
+freqs = [261, 293, 311, 261, 293, 311, 349, 311, 392, 311, 349, 293, 311, 261, 293, 233]
 print("Playing frequency (Hz):")
 
-for i in range(64):
-    print(freq)
-    playtone(freq, duration)
-    freq = int(freq * 1.1)
+count = 0
+
+while count < 3:    
+    for i in range(len(freqs)):
+        print(i)
+        playtone(freqs[i], duration)
+    count+=1
+
 
 # Turn off the PWM
 quiet()
