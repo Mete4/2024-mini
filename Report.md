@@ -1,6 +1,8 @@
 # 2024 Fall Miniproject assignment by Mete Gumusayak and Jared Solis
 
 ### Exercise 1
+
+Got the min_bright by running the Pico with bright light and the max_bright by running the Pico while covering the sensor.
 max_bright = 19400, min_bright = 40000
 
 ### Exercise 2
