@@ -7,11 +7,23 @@ import time
 import random
 import json
 
+import urequests as requests
 
 N: int = 10
 sample_ms = 10.0
 on_ms = 500
 
+firebase_url = "https://ec463-mini-c0f7c-default-rtdb.firebaseio.com/scores.json"
+
+# Send data to Firebase Realtime Database.
+def data_to_firebase(data: dict) -> None:
+    try:
+        headers = {'Content-Type': 'application/json'}
+        response = requests.post(firebase_url, json=data, headers=headers)
+        print(f"Response from Firebase: {response.status_code}, {response.text}")
+        response.close() 
+    except Exception as e:
+        print(f"Failed to send data: {e}")
 
 def random_time_interval(tmin: float, tmax: float) -> float:
     """return a random time interval between max and min"""
@@ -65,7 +77,7 @@ def scorer(t: list[int | None]) -> None:
     
     data = {'min_time': min_time, 'max_time': max_time, 'avg_time': avg_time, 'score': score}
     
-    
+    data_to_firebase(data)
 
     # %% make dynamic filename and write JSON
 
